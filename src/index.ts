@@ -8,9 +8,14 @@ mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
   .then(()=> console.log("Connect to database!"));
 
+const corsOptions = {
+    origin: 'https://eatsc-frontend01.onrender.com',
+    optionsSuccessStatus: 200
+  };
+
 const app = express();
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOptions))
 
 app.get("/health",async (req: Request, res: Response)=>{
   res.send({ message: "health OK!"});
