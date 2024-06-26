@@ -9,9 +9,11 @@ mongoose
   .then(()=> console.log("Connect to database!"));
 
 const corsOptions = {
-    origin: 'https://eatsc-frontendrs.onrender.com',
-    optionsSuccessStatus: 200
-  };
+  origin: ['https://eatsc-frontend01.onrender.com', 'https://eatsc-frontendrs.onrender.com'],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true  // If you need to allow credentials (cookies, authorization headers)
+};
 
 
 const app = express();
