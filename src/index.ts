@@ -24,10 +24,6 @@ app.get("/health",async (req: Request, res: Response)=>{
 
 app.use("/api/my/user", myUserRoute);
 
-app.listen(1007,()=>{
-  console.log("server running on localhost:1007");
-});
-
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://eatsc-frontendrs.onrender.com');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -41,3 +37,9 @@ app.use((req, res, next) => {
     next();
   }
 });
+
+app.listen(1007,()=>{
+  console.log("server running on localhost:1007");
+});
+
+
