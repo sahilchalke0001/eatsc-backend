@@ -9,7 +9,7 @@ mongoose
   .then(()=> console.log("Connect to database!"));
 
 const corsOptions = {
-    origin: 'https://eatsc-frontend01.onrender.com',
+    origin: 'https://eatsc-frontendrs.onrender.com',
     optionsSuccessStatus: 200
   };
 
@@ -23,20 +23,6 @@ app.get("/health",async (req: Request, res: Response)=>{
 });
 
 app.use("/api/my/user", myUserRoute);
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://eatsc-frontendrs.onrender.com');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-  if (req.method === 'OPTIONS') {
-    // Respond to preflight request
-    res.sendStatus(200);
-  } else {
-    
-    next();
-  }
-});
 
 app.listen(1007,()=>{
   console.log("server running on localhost:1007");
