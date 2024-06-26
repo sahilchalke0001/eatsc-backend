@@ -12,6 +12,19 @@ const corsOptions = {
     origin: 'https://eatsc-frontend01.onrender.com',
     optionsSuccessStatus: 200
   };
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://eatsc-frontendrs.onrender.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (req.method === 'OPTIONS') {
+    // Respond to preflight request
+    res.sendStatus(200);
+  } else {
+    
+    next();
+  }
+});
 
 const app = express();
 app.use(express.json())
